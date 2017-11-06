@@ -1,0 +1,3 @@
+[submodule "netvid"]
+	path = netvid
+	url = https://github.com:trylle/netvid.git

@@ -22,6 +22,8 @@ LIBS :=
 DEFINES := -DHAVE_CONFIG_H -DRARCH_INTERNAL -DHAVE_OVERLAY
 DEFINES += -DGLOBAL_CONFIG_DIR='"$(GLOBAL_CONFIG_DIR)"'
 
+CFLAGS += -Wno-unused-function
+
 ifneq ($(findstring BSD,$(OS)),)
    CFLAGS += -DBSD
    LDFLAGS += -L/usr/local/lib
@@ -81,7 +83,7 @@ endif
 CFLAGS   += -Wall $(OPTIMIZE_FLAG) $(INCLUDE_DIRS) $(DEBUG_FLAG) -I.
 
 APPEND_CFLAGS := $(CFLAGS)
-CXXFLAGS += $(APPEND_CFLAGS) -std=c++11 -D__STDC_CONSTANT_MACROS
+CXXFLAGS += $(APPEND_CFLAGS) -std=c++17 -D__STDC_CONSTANT_MACROS
 OBJCFLAGS :=  $(CFLAGS) -D__STDC_CONSTANT_MACROS
 
 ifeq ($(CXX_BUILD), 1)
@@ -135,6 +137,8 @@ endif
 ifneq ($(findstring $(GPERFTOOLS),tcmalloc),)
    LIBS += -ltcmalloc
 endif
+
+LIBS += -lboost_thread -lboost_system
 
 all: $(TARGET) config.mk
 

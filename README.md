@@ -8,6 +8,17 @@ Popular examples of implementations for this API includes videogame system emula
 more generalized 3D programs.
 These programs are instantiated as dynamic libraries. We refer to these as "libretro cores".
 
+## This fork adds netvid support
+
+Use the following environment variables to configure:
+
+* remote_gfx_endpoint
+
+  The destination address and port to send video stream. Should be formatted as such \[host\]:\[port\]
+* remote_gfx_rate_limit
+
+  Optional rate limit in bits per second. Default is unlimited.
+
 ## libretro
 
 [libretro](http://libretro.com) is an API that exposes generic audio/video/input callbacks.

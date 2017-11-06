@@ -1050,6 +1050,10 @@ ifeq ($(HAVE_D3D9), 1)
    endif
 endif
 
+OBJ += gfx/common/netvid_hook.o
+OBJ += netvid/net.o
+OBJ += netvid/framebuffer.o
+
 #ifeq ($(HAVE_LIBXML2), 1)
    #LIBS += $(LIBXML2_LIBS)
    #DEFINES += $(LIBXML2_CFLAGS)

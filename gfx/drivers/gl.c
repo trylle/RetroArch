@@ -79,6 +79,8 @@
 
 #include "../video_shader_driver.h"
 
+#include "../common/netvid_hook.h"
+
 #ifndef GL_SYNC_GPU_COMMANDS_COMPLETE
 #define GL_SYNC_GPU_COMMANDS_COMPLETE     0x9117
 #endif
@@ -1329,6 +1331,8 @@ static bool gl_frame(void *data, const void *frame,
 #endif
 #endif
 #endif
+
+   netvid_new_frame(frame, frame_width, frame_height, gl->base_size*8, pitch, video_driver_get_aspect_ratio());
 
    /* Disable BFI during fast forward, slow-motion,
     * and pause to prevent flicker. */
